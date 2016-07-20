@@ -18,6 +18,8 @@ library
   exposed-modules:     LN.Api
                        LN.Api.String
   build-depends:       base >= 4.7 && < 5
+                     , data-default
+                     , text
                      , ghcjs-ajax == 0.2.0.0
                      , haskell-api-helpers-shared
                      , haskell-api-helpers-ghcjs
