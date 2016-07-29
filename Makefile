@@ -9,3 +9,6 @@ tests:
 
 sync:
 	rsync -av ../ln-api/src/ ./src/
+
+ghci:
+	stack ghci ln-api-ghcjs
