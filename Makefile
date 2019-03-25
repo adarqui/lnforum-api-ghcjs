@@ -8,7 +8,7 @@ tests:
 	stack test --fast
 
 sync:
-	rsync -av ../ln-api/src/ ./src/
+	rsync -av ../lnforum-api/src/ ./src/
 
 ghci:
-	stack ghci ln-api-ghcjs
+	stack ghci lnforum-api-ghcjs
