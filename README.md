@@ -1,3 +1,3 @@
-# ln-api-ghcjs
+# lnforum-api-ghcjs
 
-The same thing as ln-api, but for ghcjs. Automatically generated from ln-interop.
+The same thing as lnforum-api, but for ghcjs. Automatically generated from ln-interop.
