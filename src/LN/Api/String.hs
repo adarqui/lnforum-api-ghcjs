@@ -29,6 +29,12 @@ getUserSanitizedPack params user_name = handleError <$> getAt params ["user_sani
 getUserSanitizedPack' :: Text -> ApiEff SpecificApiOptions (Either (ApiError ApplicationError) UserSanitizedPackResponse)
 getUserSanitizedPack' user_name = handleError <$> getAt ([] :: [(Text, Text)]) ["user_sanitized_pack", user_name]
 
+getForumPack :: forall qp. QueryParam qp => [qp] -> Text -> ApiEff SpecificApiOptions (Either (ApiError ApplicationError) ForumPackResponse)
+getForumPack params forum_sid = handleError <$> getAt params ["forum_pack", forum_sid]
+
+getForumPack' :: Text -> ApiEff SpecificApiOptions (Either (ApiError ApplicationError) ForumPackResponse)
+getForumPack' forum_sid = handleError <$> getAt ([] :: [(Text, Text)]) ["forum_pack", forum_sid]
+
 getBoardPack :: forall qp. QueryParam qp => [qp] -> Text -> ApiEff SpecificApiOptions (Either (ApiError ApplicationError) BoardPackResponse)
 getBoardPack params board_sid = handleError <$> getAt params ["board_pack", board_sid]
 
