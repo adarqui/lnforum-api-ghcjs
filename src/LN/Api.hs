@@ -445,12 +445,6 @@ getUserSanitizedStat params user_id = handleError <$> getAt params ["user_saniti
 getUserSanitizedStat' :: Int64 -> ApiEff SpecificApiOptions (Either (ApiError ApplicationError) UserSanitizedStatResponse)
 getUserSanitizedStat' user_id = handleError <$> getAt ([] :: [(Text, Text)]) ["user_sanitized_stat", T.pack $ show user_id]
 
-getBootPack :: forall qp. QueryParam qp => [qp] -> ApiEff SpecificApiOptions (Either (ApiError ApplicationError) BootPackResponse)
-getBootPack params = handleError <$> getAt params ["boot_pack"]
-
-getBootPack' :: ApiEff SpecificApiOptions (Either (ApiError ApplicationError) BootPackResponse)
-getBootPack'  = handleError <$> getAt ([] :: [(Text, Text)]) ["boot_pack"]
-
 getUserPacks :: forall qp. QueryParam qp => [qp] -> ApiEff SpecificApiOptions (Either (ApiError ApplicationError) UserPackResponses)
 getUserPacks params = handleError <$> getAt params ["user_packs"]
 
