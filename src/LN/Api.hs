@@ -343,11 +343,11 @@ getUsers_ByUsersNames params _ByUsersNames = handleError <$> getAt (map qp param
 getUsers_ByUsersNames' :: [Text] -> ApiEff SpecificApiOptions (Either (ApiError ApplicationError) UserResponses)
 getUsers_ByUsersNames' _ByUsersNames = handleError <$> getAt [ByUsersNames _ByUsersNames] ["users"]
 
-postUser :: forall qp. QueryParam qp => [qp] -> UserRequest -> ApiEff SpecificApiOptions (Either (ApiError ApplicationError) UserResponse)
-postUser params user_request = handleError <$> postAt params ["user"] user_request
+postUsers :: forall qp. QueryParam qp => [qp] -> UserRequest -> ApiEff SpecificApiOptions (Either (ApiError ApplicationError) UserResponse)
+postUsers params user_request = handleError <$> postAt params ["users"] user_request
 
-postUser' :: UserRequest -> ApiEff SpecificApiOptions (Either (ApiError ApplicationError) UserResponse)
-postUser' user_request = handleError <$> postAt ([] :: [(Text, Text)]) ["user"] user_request
+postUsers' :: UserRequest -> ApiEff SpecificApiOptions (Either (ApiError ApplicationError) UserResponse)
+postUsers' user_request = handleError <$> postAt ([] :: [(Text, Text)]) ["users"] user_request
 
 getUser :: forall qp. QueryParam qp => [qp] -> Int64 -> ApiEff SpecificApiOptions (Either (ApiError ApplicationError) UserResponse)
 getUser params user_id = handleError <$> getAt params ["user", T.pack $ show user_id]
